@@ -1,99 +1,175 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Wunder - Bootstrap Material Admin Dashboard Template</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendors/material.min.css" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="../../assets/css/wunder.css" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../../assets/css/demo.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+</head>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
+<body>
+    <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+        <div class="navbar-header d-flex">
+            <a class="navbar-brand" href="../index.html"> Wunder Admin </a>
+        </div>
+    </nav>
+    <div class="wrapper wrapper-full-page">
+        <div class="full-page login-page" data-color="blue">
+            <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7 mx-auto">
+                            <form method="#" action="#">
+                                <div class="card card-login">
+                                    <div class="card-header text-center">
+                                        <h4 class="card-title">Login</h4>
+                                    </div>
+                                    <div class="card-content">
+                                        <form method="POST" action="{{ route('login') }}">
+                                            @csrf
+                                            <h5 class="text-center">Wunder Account</h5>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="material-icons">face</i>
+                                                    </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                                        name="email" value="{{ old('email') }}" required autofocus>
+
+                                                    @if ($errors->has('email'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="material-icons">lock_outline</i>
+                                                    </div>
+                                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                                        name="password" required>
+
+                                                    @if ($errors->has('password'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                    </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-wd btn-lg">Sign In
+                                        {{ __('Login') }}
+                                        </button>
+                                        <p>New to Wunder?&nbsp;&nbsp;
+                                            <a href="register.html">
+                                                <i class="material-icons">person_add</i>Register
+                                            </a>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <footer class="footer">
+                <div class="container">
+                    <nav class="float-left">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Company
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Portfolio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Blog
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="copyright float-right">
+                        &copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+
+                        </script>
+                        <a href="http://www.wunder.com">Wunder</a> BootStrap Admin Dashboard
+                    </p>
+                </div>
+            </footer>
         </div>
-    </body>
+    </div>
+</body>
+<!--   Core JS Files   -->
+<script src="../../assets/vendors/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="../../assets/vendors/jquery-ui.min.js" type="text/javascript"></script>
+<script src="../../assets/vendors/tether.min.js" type="text/javascript"></script>
+<script src="../../assets/vendors/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="../../assets/vendors/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<!-- Forms Validations Plugin -->
+<script src="../../assets/vendors/jquery.validate.min.js"></script>
+<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+<script src="../../assets/vendors/moment.min.js"></script>
+<!--  Charts Plugin -->
+<script src="../../assets/vendors/chartist.min.js"></script>
+<!--  Plugin for the Wizard -->
+<script src="../../assets/vendors/jquery.bootstrap-wizard.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../../assets/vendors/bootstrap-notify.js"></script>
+<!-- DateTimePicker Plugin -->
+<script src="../../assets/vendors/bootstrap-datetimepicker.js"></script>
+<!-- Vector Map plugin -->
+<script src="../../assets/vendors/jquery-jvectormap.js"></script>
+<!-- Sliders Plugin -->
+<script src="../../assets/vendors/nouislider.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<!-- Select Plugin -->
+<script src="../../assets/vendors/jquery.select-bootstrap.js"></script>
+<!-- Sweet Alert 2 plugin -->
+<script src="../../assets/vendors/sweetalert/sweetalert2.min.js"></script>
+<!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="../../assets/vendors/jasny-bootstrap.min.js"></script>
+<!--  Full Calendar Plugin    -->
+<script src="../../assets/vendors/fullcalendar.min.js"></script>
+<!-- TagsInput Plugin -->
+<script src="../../assets/vendors/jquery.tagsinput.js"></script>
+<!-- Material Dashboard javascript methods -->
+<script src="../../assets/js/wunder.min.js"></script>
+<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+<script src="../../assets/js/demo.min.js"></script>
+
 </html>

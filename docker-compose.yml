@@ -8,6 +8,14 @@ services:
       - MARIADB_USER=my_user
       - MARIADB_DATABASE=my_database
       - MARIADB_PASSWORD=my_password
+   
+  phpmyadmin:
+    image: bitnami/phpmyadmin:latest
+    depends_on:
+      - mariadb
+    ports:
+      - '80:80'
+      - '443:443'
 
   myapp:
     tty: true

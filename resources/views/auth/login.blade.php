@@ -1,73 +1,94 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+    <div class="navbar-header d-flex">
+        <a class="navbar-brand" href="../index.html"> Larabee </a>
+    </div>
+</nav>
+<div class="wrapper wrapper-full-page">
+    <div class="full-page login-page" data-color="blue">
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-7 mx-auto">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="card card-login">
+                                <div class="card-header text-center">
+                                    <h4 class="card-title">Login</h4>
+                                </div>
+                                <div class="card-content">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                                    <h5 class="text-center">Larabee Account</h5>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="material-icons">face</i>
+                                            </div>
+                                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                                name="email" value="{{ old('email') }}" placeholder="Email" required
+                                                autofocus>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                            @if ($errors->has('email'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </div>
+                                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                                name="password" placeholder="Mot de passe" required>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                            @if ($errors->has('password'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                            @endif
+                                        </div>
+                                    </div>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">
+                                        Connexion
+                                    </button>
+                                    <p>Nouveau sur larabee ?&nbsp;&nbsp;
+                                        <a  href="{{ route('register') }}">
+                                            <i class="material-icons">person_add</i>Me creer un compte
+                                        </a>
+                                    </p>
+                                    @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        Mot de passe oublié
+                                    </a>
+                                    @endif
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="copyright float-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+
+                    </script>
+                    <a href="http://www.wunder.com">Wunder</a> BootStrap Admin Dashboard
+                </p>
+            </div>
+        </footer>
     </div>
 </div>
 @endsection
