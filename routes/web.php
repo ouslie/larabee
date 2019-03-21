@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/app', 'HomeController@index')->name('dashboard');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::name('apiary')->get('app/apiary', 'ApiaryController@index');

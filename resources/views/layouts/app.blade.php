@@ -236,6 +236,12 @@
                                 <p class="hidden-lg-up">Settings</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/logout" class="nav-link">
+                                <i class="material-icons">power_settings_new</i>
+                                <p class="hidden-lg-up">power</p>
+                            </a>
+                        </li>
                         <li class="separator hidden-lg-up"></li>
                     </ul>
                 </div>
