@@ -17,8 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/app', 'HomeController@index')->name('dashboard');
 
-Route::prefix('admin')->namespace('Back')->group(function () {
-    Route::name('admin')->get('/', 'AdminController@index');
-});
+Route::name('apiary')->get('app/apiary', 'ApiaryController@index');

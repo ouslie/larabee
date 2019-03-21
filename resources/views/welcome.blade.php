@@ -24,7 +24,7 @@
 <body>
     <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
         <div class="navbar-header d-flex">
-            <a class="navbar-brand" href="../index.html"> Wunder Admin </a>
+            <a class="navbar-brand" href="{{ route('home') }}">LaraBee</a>
         </div>
     </nav>
     <div class="wrapper wrapper-full-page">
@@ -34,61 +34,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-md-7 mx-auto">
-                            <form method="#" action="#">
-                                <div class="card card-login">
-                                    <div class="card-header text-center">
-                                        <h4 class="card-title">Login</h4>
-                                    </div>
-                                    <div class="card-content">
-                                        <form method="POST" action="{{ route('login') }}">
-                                            @csrf
-                                            <h5 class="text-center">Wunder Account</h5>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="material-icons">face</i>
-                                                    </div>
-
-                                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                                        name="email" value="{{ old('email') }}" required autofocus>
-
-                                                    @if ($errors->has('email'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="material-icons">lock_outline</i>
-                                                    </div>
-                                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                                        name="password" required>
-
-                                                    @if ($errors->has('password'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('password') }}</strong>
-                                                    </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-wd btn-lg">Sign In
-                                        {{ __('Login') }}
-                                        </button>
-                                        <p>New to Wunder?&nbsp;&nbsp;
-                                            <a href="register.html">
-                                                <i class="material-icons">person_add</i>Register
-                                            </a>
-                                        </p>
-
-                                    </div>
+                            <div class="card card-login">
+                                <div class="card-header text-center">
+                                    <h4 class="card-title">Toto</h4>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>

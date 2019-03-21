@@ -34,18 +34,18 @@
         <nav class="sidebar" data-background-color="white">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    Wunder Admin
+                   LaraBee
                 </a>
             </div>
             <div class="logo logo-mini">
                 <a href="#" class="simple-text">
-                    W
+                    LB
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">
+                        <a class="nav-link active" href="{{ route('dashboard') }}">
                             <i class="material-icons">dashboard</i>
                             <p>
                                 Dashboard
@@ -53,10 +53,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="widgets/widgets.html">
+                        <a class="nav-link"  href="{{ route('apiary') }}">
                             <i class="material-icons">apps</i>
                             <p>
-                                Widgets
+                                Mes ruchers
                             </p>
                         </a>
                     </li>
@@ -242,7 +242,7 @@
             </nav>
             <div class="content">
                 <div id="app">
-                    @yield('dashboard')
+                    @yield('content')
                 </div>
             </div>
             <footer class="footer ">

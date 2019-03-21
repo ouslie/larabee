@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
-@section('dashboard')
+@section('content')
 toto
 @endsection
