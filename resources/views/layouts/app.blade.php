@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="{{ route('apiary') }}">
+                        <a class="nav-link"  href="{{ route('apiary.index') }}">
                             <i class="material-icons">apps</i>
                             <p>
                                 Mes ruchers
@@ -290,6 +290,8 @@
         </div>
     </div>
 </body>
+<script src="{{ asset('js/app.js') }}" type="text/js"></script>
+
 <!--   Core JS Files   -->
 <script src="../assets/vendors/jquery-3.1.1.min.js " type="text/javascript "></script>
 <script src="../assets/vendors/jquery-ui.min.js " type="text/javascript "></script>
