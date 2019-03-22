@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApiariesTable extends Migration
+class HivesAdd extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateApiariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('apiaries', function (Blueprint $table) {
+              
+        Schema::create('hives', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
             $table->string('name');
+            $table->integer('frame');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -28,6 +30,7 @@ class CreateApiariesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apiaries');
+        Schema::dropIfExists('hives');
+
     }
 }

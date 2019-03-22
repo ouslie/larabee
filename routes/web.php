@@ -20,4 +20,25 @@ Auth::routes();
 Route::get('/app', 'HomeController@index')->name('dashboard');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::resource('apiary', 'ApiaryController');
+
+Route::group(['prefix' => 'app'], function () {
+  
+    Route::group(['prefix' => 'hives'], function () {
+        Route::get('/', 'HivesController@index')->name('hives.index');
+        Route::match(['get', 'post'], 'create', 'HivesController@create');
+        Route::match(['get', 'put'], 'update/{id}', 'HivesController@update');
+        Route::delete('delete/{id}', 'HivesController@delete');
+    });
+    
+    Route::group(['prefix' => 'apiaries'], function () {
+        Route::get('/', 'ApiariesController@index')->name('apiaries.index');
+        Route::match(['get', 'post'], 'create', 'ApiariesController@create');
+        Route::match(['get', 'put'], 'update/{id}', 'ApiariesController@update');
+        Route::delete('delete/{id}', 'ApiariesController@delete');
+    });
+});
+
+
+
+
+
